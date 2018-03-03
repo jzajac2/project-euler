@@ -29,8 +29,7 @@ namespace ProjectEuler
                 
                 if (multipleOfThree)
                 {
-                    listOfMultiples.Add(i);
-                    
+                    listOfMultiples.Add(i);   
                 }
 
                 if (multipleOfFive)
@@ -46,7 +45,6 @@ namespace ProjectEuler
             foreach (int multiple in listOfMultiples)
             {
                 Console.WriteLine("Multiple of 3 or 5: " + multiple.ToString());
-                
             }
             Console.WriteLine("Sum of all multiples: " + totalOfAllMultiples.ToString());
             Console.ReadLine();
