@@ -7,37 +7,22 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 */
 
-function evenFibonacciNumbers() {
+function evenFibonacciNumbers(doNotExceed) {
 	
-	//get the input into an array
-	var nums = [];
-	for (var i=1; i <= 10; i++)  {
-		nums.push(i);
+	var sum = 0;
+	var a = 1;
+	var b = 1;
+	var c = a + b;
+	
+	while (c < doNotExceed) {
+		sum += c; 
+		a = b + c;
+		b = c + a;
+		c = a + b; //every third fib num is even, so just add those
 	}
 	
-	//loop through input array and create a new array of fib sequence
-	var fibSeqArray = [1,2]; //manually add one and two for now
-	var nextFibTerm = undefined;
-	var sumOfEvenValuedFibTerms = 0;
- 	nums.forEach(function(item, index, array) {
-	
-		if (index > 1) {
-			//new sequence is previous two added together
-			nextFibTerm = fibSeqArray[index-1] + fibSeqArray[index-2];
-			fibSeqArray.push(nextFibTerm);
-		}
-	});
-	
- 	fibSeqArray.forEach(function(item,index,array) {
-		var isEvenNumber = (item % 2 === 0);
-		if (isEvenNumber) {
-			sumOfEvenValuedFibTerms += item;
-			print("even terms: " + item);
-		}
-		
-	});
+ 	print(sum);
  	
- 	print("Sum of even terms: " + sumOfEvenValuedFibTerms);
 }
 
-evenFibonacciNumbers();
+evenFibonacciNumbers(4000000);
