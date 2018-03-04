@@ -21,24 +21,10 @@ namespace ProjectEuler
             HashSet<int> listOfMultiples = new HashSet<int>();
             for (int i = 1; i < 1000; i++)
             {
-
                 numToTest = i;
-                bool multipleOfThree = (numToTest %= 3) == 0;
-                numToTest = i;
-                bool multipleOfFive = (numToTest %= 5) == 0;
-                
-                if (multipleOfThree)
-                {
-                    listOfMultiples.Add(i);   
-                }
-
-                if (multipleOfFive)
+                if ((numToTest % 3) == 0 | (numToTest % 5) == 0) //bitwise inclusive or
                 {
                     listOfMultiples.Add(i);
-                }
-
-                if (multipleOfFive || multipleOfThree)
-                {
                     totalOfAllMultiples += i;
                 }
             }
